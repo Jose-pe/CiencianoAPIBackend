@@ -28,4 +28,7 @@ class Partido extends Model
         'resultado',
         'rival'
      ];
+     public function gols(){
+      return $this->hasMany(Gol::class, 'id_partido', 'id' );
+     }
 }

@@ -18,7 +18,9 @@ class CreateGolsTable extends Migration
             $table->string('autor');
             $table->integer('minuto_juego');
             $table->string('tipo_gol');
+            $table->bigInteger('id_partido')->unsigned();
             $table->timestamps();
+            $table->foreign('id_partido')->references('id')->on('partidos')->onDelete('cascade');
         });
     }
 
