@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Partido;
+use Response;
 
 class PartidoController extends Controller
 {
@@ -12,10 +13,14 @@ class PartidoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function allmatchs(){
+        $partidos = Partido::orderBy('fecha', 'desc')->paginate(10);
+        return $partidos;
+    }
     public function index()
     {
         //
-        $partidos = Partido::paginate();
+        $partidos = Partido::orderBy('fecha', 'desc')->paginate(4);
         return $partidos;
     }
 
@@ -40,7 +45,11 @@ class PartidoController extends Controller
         //
         $input = $request->all();
         Partido::create($input);
-        return "Partido Guardado";
+        return Response::json(array(
+            'success'=>true,
+            'mensaje' => 'Se Guardaron los datos'
+        ), 200);
+        //return "Partido Guardado";
     }
 
     /**
@@ -83,7 +92,11 @@ class PartidoController extends Controller
         $input =  $request->all();
         $partido = Partido::find($id);
         $partido->update($input);
-        return "Partido actualizado exitosamente";
+        //return "Partido actualizado exitosamente";
+        return Response::json(array(
+            'success'=>true,
+            'mensaje' => 'Partido actualizado exitosamente'
+        ), 200);
     }
 
     /**
@@ -97,6 +110,10 @@ class PartidoController extends Controller
         //
         $partido = Partido::find($id);
         $partido->delete();
-        return ("Partido Eliminado");
+        return Response::json(array(
+            'success'=>true,
+            'mensaje' => 'Partido Eliminado'
+        ), 200);
+        //return ("Partido Eliminado");
     }
 }
