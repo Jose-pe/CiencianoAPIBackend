@@ -116,4 +116,8 @@ class PartidoController extends Controller
         ), 200);
         //return ("Partido Eliminado");
     }
+
+    public function mostrarstats($temporada){
+        
+    }
 }
