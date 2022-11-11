@@ -117,7 +117,36 @@ class PartidoController extends Controller
         //return ("Partido Eliminado");
     }
 
-    public function mostrarstats($temporada){
+    public function statstemporada($temporada){
+
+        $goles =  Partido::whereYear('fecha', $temporada)->sum('goles_favor');
+            
+        $tiros =  Partido::whereYear('fecha', $temporada)->sum('tiros');
+           
+        $tiros_arco =  Partido::whereYear('fecha', $temporada)->sum('tiros_arco');
+           
+        $pases =  Partido::whereYear('fecha', $temporada)->sum('tiros_arco');
+       
+        $faltas =  Partido::whereYear('fecha', $temporada)->sum('faltas');
+
         
+
+        $victorias = Partido::whereYear('fecha', $temporada)->where('resultado', 'Victoria')->count('resultado');
+
+        $empates = Partido::whereYear('fecha', $temporada)->where('resultado', 'Empate')->count('resultado');
+
+        $derrotas = Partido::whereYear('fecha', $temporada)->where('resultado', 'Derrota')->count('resultado');
+
+        return Response::json(array(
+            'goles'=>$goles,
+            'tiros' => $tiros,
+            'tiros_arco'=>$tiros_arco,
+            'pases'=>$pases,
+            'faltas'=>$faltas,
+            'victorias'=>$victorias,
+            'empates'=>$empates,
+            'derrotas'=>$derrotas,
+            
+        ), 200);
     }
 }

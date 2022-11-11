@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::resource('partidos', PartidoController::class);
 Route::get('todospartidos', [App\Http\Controllers\PartidoController::class, 'allmatchs']);
+Route::get('statstemporada/{temporada}', [App\Http\Controllers\PartidoController::class, 'statstemporada']);
