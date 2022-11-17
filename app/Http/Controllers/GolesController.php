@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Gol;
+use Response;
+
 
 class GolesController extends Controller
 {
