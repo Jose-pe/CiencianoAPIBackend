@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Gol;
 
 class GolesController extends Controller
 {
@@ -35,6 +36,12 @@ class GolesController extends Controller
     public function store(Request $request)
     {
         //
+        $input = $request->all();
+        Gol::create($input);
+        return Response::json(array(
+            'success' => true,
+            'mensaje' => 'goles guardados'
+        ), 200);
     }
 
     /**
@@ -43,9 +50,11 @@ class GolesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id_partido)
     {
         //
+        $goles = Gol::find($id_partido);
+        return $goles;
     }
 
     /**
@@ -79,6 +88,11 @@ class GolesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $gol = Gol::find($id);
+        $gol->delete();
+        return Response::json(array(
+            'success' => true,
+            'mensaje'=> 'Gol eliminado'
+        ), 200);
     }
 }
