@@ -26,7 +26,9 @@ class Partido extends Model
         'tiro_esquina',
         //victoria - derrota - empate
         'resultado',
-        'rival'
+        'rival',
+        //Local // Visitante // Cancha Neutral
+        'condicion'
      ];
      public function gols(){
       return $this->hasMany(Gol::class, 'id_partido', 'id' );

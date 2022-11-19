@@ -32,6 +32,7 @@ class CreatePartidosTable extends Migration
             $table->integer('tiro_esquina');
             $table->string('resultado');
             $table->string('rival');
+            $table->string('condicion');
             $table->timestamps();
         });
     }
