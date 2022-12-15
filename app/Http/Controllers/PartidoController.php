@@ -45,7 +45,7 @@ class PartidoController extends Controller
         //
         $input = $request->all();
         Partido::create($input);
-        $ultimopartido = Partido::first();
+        $ultimopartido = Partido::orderBy('id', 'ASC')->first();
         return Response::json(array(
             'success'=>true,
             'mensaje' => 'Se Guardaron los datos',
