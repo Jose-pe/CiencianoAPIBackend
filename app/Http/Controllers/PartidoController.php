@@ -33,6 +33,10 @@ class PartidoController extends Controller
     {
         //
     }
+    public function lastmatch(){
+        $ultimopartido = Partido::orderBy('id', 'DESC')->first();
+        return $ultimopartido;
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -45,11 +49,10 @@ class PartidoController extends Controller
         //
         $input = $request->all();
         Partido::create($input);
-        $ultimopartido = Partido::orderBy('id', 'DESC')->first();
         return Response::json(array(
             'success'=>true,
             'mensaje' => 'Se Guardaron los datos',
-            'ultimopartido' => $ultimopartido,
+            
         ), 200);
         //return "Partido Guardado";s
     }
