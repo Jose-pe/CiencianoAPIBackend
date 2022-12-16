@@ -22,3 +22,5 @@ Route::resource('partidos', PartidoController::class);
 Route::get('todospartidos', [App\Http\Controllers\PartidoController::class, 'allmatchs']);
 Route::get('statstemporada/{temporada}', [App\Http\Controllers\PartidoController::class, 'statstemporada']);
 Route::get('ultimopartido', [App\Http\Controllers\PartidoController::class, 'lastmatch']);
+Route::put('creargoles', [App\Http\Controllers\GolesController::class, 'store']);
+Route::get('listargoles', [App\Http\Controllers\GolesController::class, 'index']);
