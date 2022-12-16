@@ -33,6 +33,7 @@ class PartidoController extends Controller
     {
         //
     }
+    //ultimo partido
     public function lastmatch(){
         $ultimopartido = Partido::orderBy('id', 'DESC')->first();
         return $ultimopartido;
