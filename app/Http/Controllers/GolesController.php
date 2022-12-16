@@ -16,7 +16,8 @@ class GolesController extends Controller
      */
     public function index()
     {
-        //
+        $goles = Gol::all();
+        return $goles;
     }
 
     /**
