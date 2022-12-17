@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Partido;
+use App\Gol;
 use Response;
 
 class PartidoController extends Controller
@@ -68,7 +69,7 @@ class PartidoController extends Controller
     {
         //
         $partido = Partido::find($id);
-        $gol_partido= Partido::where('id_partido', $id)->get();
+        $gol_partido= Gol::where('id_partido', $id)->get();
         return [$partido, $gol_partido];
 
     }
