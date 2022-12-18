@@ -69,7 +69,7 @@ class PartidoController extends Controller
     {
         //
         $partido = Partido::find($id);
-        $gol_partido= Gol::where('id_partido', $id_partido)->get();
+        $gol_partido= Gol::where('id_partido', $id)->get();
         return Response::json(array(
             'datamatch' => $partido,
             'goldata' => $gol_partido
