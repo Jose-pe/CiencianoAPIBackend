@@ -62,7 +62,9 @@ class GolesController extends Controller
 
     public function goles_partido($id_partido){
         $gol_partido= Gol::where('id_partido', $id_partido)->get();
-        return $gol_partido;
+        return Response::json(array( 
+            'goles_partido'=>$gol_partido
+        ), 200);
     }
     /**
      * Show the form for editing the specified resource.
