@@ -24,3 +24,4 @@ Route::get('statstemporada/{temporada}', [App\Http\Controllers\PartidoController
 Route::get('ultimopartido', [App\Http\Controllers\PartidoController::class, 'lastmatch']);
 Route::put('creargoles', [App\Http\Controllers\GolesController::class, 'store']);
 Route::get('listargoles', [App\Http\Controllers\GolesController::class, 'index']);
+route::get('golespartido/{id_partido}',  [App\Http\Controllers\GolesController::class, 'goles_partido']);
