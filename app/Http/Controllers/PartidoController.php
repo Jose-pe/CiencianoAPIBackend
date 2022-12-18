@@ -71,8 +71,8 @@ class PartidoController extends Controller
         $partido = Partido::find($id);
        
         return Response::json(array(
-            'datamatch' => $partido,
-            'golmatch'=> $gol_partido
+            'datamatch' => $partido
+           
         ));
 
     }
