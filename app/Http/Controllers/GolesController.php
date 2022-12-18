@@ -60,7 +60,7 @@ class GolesController extends Controller
         return $goles;
     }
 
-    public function goles_partido(){
+    public function goles_partido($id_partido){
         $gol_partido= Gol::where('id_partido', $id_partido)->get();
         return $gol_partido;
     }
